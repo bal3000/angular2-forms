@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from '../models/options';
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,20 @@ import { Options } from '../models/options';
 export class HomeComponent implements OnInit {
 
   languages: Options[];
+  model: Employee;
 
   constructor() {
-    this.languages = [];
+    this.languages = [
+      new Options("English", "English"),
+      new Options("German", "German"),
+      new Options("Spanish", "Spanish")
+    ];
+    this.model = new Employee("Something", "Smith", true, "w2", "English");
   }
 
   ngOnInit() {
-    this.languages = [
-      new Options("English", "eng"),
-      new Options("German", "ger"),
-      new Options("Spanish", "esp")
-    ];
   }
+
+
 
 }
